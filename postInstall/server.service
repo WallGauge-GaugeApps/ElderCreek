@@ -1,0 +1,21 @@
+[Unit]
+Description=ElderCreek
+Wants=rgMan.service
+After=rgMan.service
+
+[Service]
+Type=dbus
+BusName=com.ElderCreek
+ExecStart=/usr/local/bin/node /opt/rGauge/gList/ElderCreek/app.js
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=ElderCreek
+User=rgservice
+Group=irdclient
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/opt/rGauge/gList/ElderCreek
+
+[Install]
+WantedBy=multi-user.target

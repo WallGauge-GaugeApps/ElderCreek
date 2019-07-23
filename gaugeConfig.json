@@ -1,0 +1,10 @@
+{
+    "descripition":"Elder Creek Gauge",
+    "uuid":"7bcbc795-7de5-4c4e-8110-940625436657",
+    "dBusName":"com.ElderCreek",
+    "calibrationTable": [[0,15],[10,614]],
+    "dataSiteCode":"11475560",
+    "dataParCode":"00065",
+    "dataLoc":"instant",
+    "gaugeIrAddress":"10"
+}
