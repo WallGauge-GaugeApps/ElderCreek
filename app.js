@@ -49,7 +49,7 @@ function setNewValue(eNum, eTxt, val){
 
 function sendValueToGauge(){
     if(validData){
-        if(myAppMan.setGaugeValue(gValue)){
+        if(myAppMan.setGaugeValue(gValue, ' feet')){
             myAppMan.setGaugeStatus('Okay, ' + (new Date()).toLocaleTimeString() + ', ' + (new Date()).toLocaleDateString());
             if(inAlert == true){
                 myAppMan.sendAlert({[myAppMan.config.descripition]:"0"});
