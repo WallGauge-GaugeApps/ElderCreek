@@ -12,7 +12,7 @@ echo "Install systemd service file -> sudo cp -n ./postInstall/server.service /e
 sudo cp -n ./postInstall/server.service /etc/systemd/system/ElderCreek.service
 echo "Enable the servers to start on reboot -> systemctl enable ElderCreek.service"
 sudo systemctl enable ElderCreek.service
-#echo "Start the service now -> systemctl start ElderCreek.service"
-#sudo systemctl start ElderCreek.service
+echo "Start the service now -> systemctl start ElderCreek.service"
+sudo systemctl start ElderCreek.service
 echo "NPM Post install shell is complete."
 echo "To start this servers please reboot the server. After reboot Type -> journalctl -u ElderCreek -f <- to see status."
