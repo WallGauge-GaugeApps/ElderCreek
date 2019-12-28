@@ -15,6 +15,10 @@ var gValue = null;
 var validData = false;
 var inAlert = false;
 var firstRun = true;
+const temperatureCode = '00010'
+const dischargeCode = '00060'
+var tempValue = ''
+var flowValue = ''
 
 console.log('__________________ App Config follows __________________');
 console.dir(myAppMan.config, {depth: null});
@@ -25,6 +29,32 @@ function getRvrData(){
     console.log('Updating data via Internet for dataSiteCode = ' + myAppMan.config.dataSiteCode + ', dataParCode = ' + myAppMan.config.dataParCode);
     validData = false;
     gDta.getInstantValues(myAppMan.config.dataSiteCode, myAppMan.config.dataParCode, setNewValue);
+    gDta.getInstantValues(myAppMan.config.dataSiteCode, temperatureCode, setTemperatureyValue);
+    gDta.getInstantValues(myAppMan.config.dataSiteCode, dischargeCode, setFlow);
+};
+
+function setTemperatureyValue(eNum, eTxt, val){
+    if(eNum==0){
+        tempValue = val
+    } else {
+        validData = false;
+        console.log('errNum = ' + eNum);
+        console.log('errTxt = ' + eTxt);
+        myAppMan.setGaugeStatus('Error updating data. ' + (new Date()).toLocaleTimeString() + ', ' + (new Date()).toLocaleDateString() + ' errTxt: ' + eTxt);
+
+    };
+};
+
+function setFlow(eNum, eTxt, val){
+    if(eNum==0){
+        flowValue = val
+    } else {
+        validData = false;
+        console.log('errNum = ' + eNum);
+        console.log('errTxt = ' + eTxt);
+        myAppMan.setGaugeStatus('Error updating data. ' + (new Date()).toLocaleTimeString() + ', ' + (new Date()).toLocaleDateString() + ' errTxt: ' + eTxt);
+
+    };
 };
 
 function setNewValue(eNum, eTxt, val){
@@ -49,7 +79,10 @@ function setNewValue(eNum, eTxt, val){
 
 function sendValueToGauge(){
     if(validData){
-        if(myAppMan.setGaugeValue(gValue, ' feet')){
+        if(myAppMan.setGaugeValue(gValue, ' feet, ' +
+        flowValue + ' cfps, ' + 
+        tempValue + ' celsius'
+        )){
             myAppMan.setGaugeStatus('Okay, ' + (new Date()).toLocaleTimeString() + ', ' + (new Date()).toLocaleDateString());
             if(inAlert == true){
                 myAppMan.sendAlert({[myAppMan.config.descripition]:"0"});
