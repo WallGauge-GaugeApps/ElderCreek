@@ -1,6 +1,6 @@
 {
   "name": "elder-creek",
-  "version": "4.1.2",
+  "version": "7.0.2",
   "description": "Sends data to RG-wallhang wirelessly over infrared",
   "main": "app.js",
   "scripts": {
@@ -9,16 +9,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RuckerGauge/ElderCreek.git"
+    "url": "git+https://github.com/WallGauge-GaugeApps/ElderCreek.git"
   },
   "author": "John Rucker",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://WallGauge.com"
   },
   "homepage": "",
   "dependencies": {
-    "app-manager": "git+https://github.com/RuckerGauge/appManager.git",
-    "request": "^2.70.0"
+    "app-manager": "git+https://github.com/WallGauge/appManager.git",
+    "ble-peripheral": "git+https://github.com/RuckerGauge/blePeripheral.git",
+    "cipher": "git+https://github.com/WallGauge/Cipher.git",
+    "irdtxclass": "git+https://github.com/WallGauge/irdTxClass.git",
+    "node-fetch": "^2.6.1"
   }
 }
