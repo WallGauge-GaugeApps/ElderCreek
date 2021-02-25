@@ -7,7 +7,7 @@
     "dataParCode":"00065",
     "dataLoc":"instant",
     "gaugeIrAddress":"10",
-    "battLifeInDays":"620",
+    "battLifeInDays":"2520",
     "battLastReplaced":"",
     "gaugeURL":"https://waterdata.usgs.gov/monitoring-location/11475560/"
 }
